@@ -8,7 +8,7 @@ The extension listens to the *shipment_saved_after* event and then checks if a c
 You can easily clone this repo with modman. Learn more in the modman wiki at https://github.com/colinmollenhour/modman/wiki/Tutorial
 
 ```
-$ modman clone https://github.com/Pragmatic-Apps/magento1-payone-postponecapture
+$ modman clone https://github.com/trendmarke-gmbh/magento1_extendend_zip_validation
 ```
 
 ### Manual installation
