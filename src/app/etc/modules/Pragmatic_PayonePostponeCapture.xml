@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Pragmatic_PayonePostponeCapture>
+      <active>true</active>
+      <codePool>community</codePool>
+      <version>1.0.0</version>
+      <depends>
+        <Payone_Core/>
+      </depends>
+    </Trendmarke_PayonePostponeCapture>
+  </modules>
+</config>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Pragmatic_PayonePostponeCapture>
+      <version>1.0.0</version>
+    </Pragmatic_PayonePostponeCapture>
+  </modules>
+  <global>
+    <helpers>
+      <pragmatic_payonepostponecapture>
+        <class>Pragmatic_PayonePostponeCapture_Helper</class>
+      </pragmatic_payonepostponecapture>
+    </helpers>
+	<models>
+	  <pragmatic_payonepostponecapture>
+		<class>Pragmatic_PayonePostponeCapture_Model</class>
+		<resourceModel>payonepostponecapture_mysql4</resourceModel>
+	  </pragmatic_payonepostponecapture>
+	</models>
+    <events>
+	  <sales_order_shipment_save_after>
+        <observers>
+          <sales_order_shipment_save_after_handler_pragmatic_payonepostponecapture>
+            <type>model</type>
+            <class>pragmatic_payonepostponecapture/observer</class>
+            <method>postponeCapture</method>
+          </sales_order_shipment_save_after_handler_pragmatic_payonepostponecapture>
+        </observers>
+      </sales_order_shipment_save_after>
+    </events>
+  </global>
+</config> 
