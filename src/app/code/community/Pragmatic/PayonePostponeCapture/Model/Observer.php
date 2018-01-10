@@ -1,4 +1,5 @@
 <?php
+
 class Pragmatic_PayonePostponeCapture_Model_Observer
 {
 
@@ -12,10 +13,10 @@ class Pragmatic_PayonePostponeCapture_Model_Observer
             $shipment = $observer->getEvent()->getShipment();
             $order = $shipment->getOrder();
             $payment = $order->getPayment();
-            if (in_array($payment->getMethodInstance()->getCode(),array('payone_payolution_installment','payone_payolution_debit')))
-            { // is payolution payment?
+            if (in_array($payment->getMethodInstance()->getCode(),
+                array('payone_payolution_installment', 'payone_payolution_debit'))) { // is payolution payment?
                 $invoiceCollection = $order->getInvoiceCollection();
-                foreach($invoiceCollection as $invoice) { // try to capture all existing invoices to this order
+                foreach ($invoiceCollection as $invoice) { // try to capture all existing invoices to this order
                     Mage::helper('pragmatic_payonepostponecapture')->capture($invoice);
                 }
             }
