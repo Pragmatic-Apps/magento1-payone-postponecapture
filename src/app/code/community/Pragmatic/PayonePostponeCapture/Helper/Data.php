@@ -10,7 +10,7 @@ class Pragmatic_PayonePostponeCapture_Helper_Data extends Mage_Core_Helper_Abstr
      */
     public function capture($invoice, $mode = "online")
     {
-        if (is_int($invoice)) { // if id given, initialize invoice object
+        if (is_numeric($invoice)) { // if id given, initialize invoice object
             $invoice = Mage::getModel('sales/order_invoice')->load($invoice);
         }
         if ($mode == "online") { // capture online and tell payone about it
