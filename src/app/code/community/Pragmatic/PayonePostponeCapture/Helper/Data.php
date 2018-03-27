@@ -16,7 +16,10 @@ class Pragmatic_PayonePostponeCapture_Helper_Data extends Mage_Core_Helper_Abstr
         if ($mode == "online") { // capture online and tell payone about it
             try {
                 $invoice->capture();
-                $this->_saveInvoice($invoice);
+                 $transactionSave = Mage::getModel('core/resource_transaction')
+                    ->addObject($invoice)
+                    ->addObject($invoice->getOrder());
+                $transactionSave->save();
                 return true;
             } catch (Exception $e) {
                 Mage::log("Could not capture online Order " . $invoice->getOrder()->getIncrementId());
